@@ -3,9 +3,15 @@
 <% if @games.count == 0 %>
   <h3>There are no games in this category</h3>
 <% else %>
+<div class="row">
   <% @games.each do |game| %>
-    <h2><%= link_to game.title, game_path(game) %></h2>
+    <div class="col-md-3">
+      <a href="/games/ <%= game.id %>">
+        <%= image_tag game.game_img.url(:game_index), class: "game" %>
+      </a>
+    </div>
   <% end %>
+ </div>
 <% end %>
 
 
