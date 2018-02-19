@@ -9,11 +9,13 @@ class GamesController < ApplicationController
   end
 
   def new
-    @game = current_user.game.build
+    @game = current_user.games.build
+    @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   def create
-    @game = current_user.game.build(game_params)
+    @game = current_user.games.build(game_params)
+    @game.category_id = params[:category_id]
 
     if @game.save
       redirect_to root_path
@@ -23,9 +25,12 @@ class GamesController < ApplicationController
   end
 
   def edit
+    @categories = Category.all.map{ |c| [c.name, c.id] }
   end
 
   def update
+    @game.category_id = params[:category_id]
+
     if @game.update(game_params)
       redirect_to game_path(@game)
     else
@@ -42,7 +47,7 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:title, :description, :creator)
+    params.require(:game).permit(:title, :description, :creator, :category_id)
   end
 
   def find_game
