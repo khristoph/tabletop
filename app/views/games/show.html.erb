@@ -2,6 +2,11 @@
 <h3><%= @game.creator %></h3>
 <p><%= @game.description %></p>
 
-<%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_game_path(@game) %>
-<%= link_to "Delete", game_path(@game), method: :delete, data: { confirm: "Are you sure?" } %>
+<div class="links btn-group">
+  <% if user_signed_in? %>
+    <% if @game.user_id == current_user.id %>
+      <%= link_to "Edit", edit_game_path(@game) %>
+      <%= link_to "Delete", game_path(@game), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+  <% end %>
+</div>
