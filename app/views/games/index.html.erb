@@ -1,7 +1,11 @@
+<h1 class="current-category"><%= params[:category] %></h1>
 
-<% @games.each do |game| %>
-  <h2><%= link_to game.title, game_path(game) %></h2>
+<% if @games.count == 0 %>
+  <h3>There are no games in this category</h3>
+<% else %>
+  <% @games.each do |game| %>
+    <h2><%= link_to game.title, game_path(game) %></h2>
+  <% end %>
 <% end %>
-
 
 
