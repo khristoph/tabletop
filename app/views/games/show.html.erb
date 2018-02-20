@@ -8,6 +8,9 @@
       <h2 class="game-title"><%= @game.title %></h2>
       <h3 class="game-creator"><span><em>Designed by </em></span><%= @game.creator %></h3>
       <h4 class="game-creator"><%= @game.category.name %></h4>
+      <h4 class="average-rating">Average Rating</h4>
+      <div class="average-review-rating" data-source=<%= @average_review %>></div>
+      <span class="number-of-reviews">From <%= @game.reviews.count %> reviews </span>
       <p class="game-desc"><%= @game.description %></p>
 
     </div>
@@ -36,3 +39,23 @@
     <% end %>
   <% end %>
 </div>
+
+<script>
+  $('review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+</script>
+
+<script>
+  $('.average-review-rating').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-source');
+    },
+    path: '/assets/'
+  });
+</script>
