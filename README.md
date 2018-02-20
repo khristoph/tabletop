@@ -1,24 +1,20 @@
-# README
+# Speak App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Check out the site [here](http://.herokuapp.com/)!(Not yet)
 
-Things you may want to cover:
+## Description:
 
-* Ruby version
+TableTop -- Application for sharing and reviewing table top games..
 
-* System dependencies
+## Tech:
 
-* Configuration
+- Ruby on Rails
+- PostgreSQL
+- Javascript / jQuery
+- AJAX
+- Bootstrap
 
-* Database creation
 
-* Database initialization
+## Developers:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- [Chris Friedman](https://github.com/khristoph)
