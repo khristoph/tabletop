@@ -14,15 +14,15 @@
     <nav class="navbar navbar-default">
       <div class="container">
         <div class="navbar-header">
-          <%= link_to "Tabletop", root_path, class: "navbar-brand" %>
+          <%= link_to "Tabletop Reviews", root_path, class: "navbar-brand" %>
         </div>
 
         <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
           <% else %>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-          <li><%= link_to "Log In", new_user_session_path %></li>
+            <li><%= link_to "Sign Up", new_user_registration_path %></li>
+            <li><%= link_to "Log In", new_user_session_path %></li>
           <% end %>
         </ul>
 
@@ -38,9 +38,20 @@
             </ul>
           </li>
 
+
           <% if user_signed_in? %>
             <li><%= link_to "Add Game", new_game_path %></li>
           <% end %>
+
+          <li>
+            <%= form_tag(games_path, method: 'get', class: 'navbar-form navbar-right') do %>
+              <%= text_field_tag 'search', nil, class: 'form-control', placeholder: ''  %>
+              <%= submit_tag "Find Game", class: 'btn btn-default', :name => nil %>
+            <% end %>
+          </li>
+            </ul>
+
+
         </ul>
       </div>
     </nav>

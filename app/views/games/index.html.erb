@@ -1,7 +1,9 @@
 <h1 class="current-category"><%= params[:category] %></h1>
 
-<% if @games.count == 0 %>
-  <h3>There are no games in this category</h3>
+<% if @games.blank? %>
+<div class="row blank">
+  <h3>There are no games meeting this criteria.</h3>
+</div>
 <% else %>
 <div class="container-fluid">
   <% @games.each do |game| %>

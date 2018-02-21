@@ -2,8 +2,10 @@ class GamesController < ApplicationController
   before_action :find_game, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :edit]
   def index
-    if params[:category].blank?
+    if params[:category].blank? && params[:search].blank?
       @games = Game.all.order("created_at DESC")
+    elsif params[:search]
+      @games = Game.search(params[:search]).order("created_at DESC")
     else
       @category_id = Category.find_by(name: params[:category]).id
       @games = Game.where(:category_id => @category_id).order("created_at DESC")
