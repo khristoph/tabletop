@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180219213203) do
+ActiveRecord::Schema.define(version: 20180221205442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20180219213203) do
     t.string "game_img_content_type"
     t.integer "game_img_file_size"
     t.datetime "game_img_updated_at"
+    t.string "rule_link"
   end
 
   create_table "reviews", force: :cascade do |t|

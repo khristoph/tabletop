@@ -2,7 +2,7 @@
 
 <% if @games.blank? %>
 <div class="row blank">
-  <h3>There are no games meeting this criteria.</h3>
+  <h3>There are no games matching "<%= params[:search] %>".</h3>
 </div>
 <% else %>
 <div class="container-fluid">

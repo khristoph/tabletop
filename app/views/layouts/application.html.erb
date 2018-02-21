@@ -11,9 +11,15 @@
 
 
   <body>
+
+
+
     <nav class="navbar navbar-default">
       <div class="container">
+
         <div class="navbar-header">
+<%= image_tag("rainbow", class: "nav navbar-icon navbar-brand") %>
+
           <%= link_to "Tabletop Reviews", root_path, class: "navbar-brand" %>
         </div>
 
@@ -35,6 +41,9 @@
                   <%= link_to category.name, games_path(category: category.name), class: "link" %>
                 </li>
                 <% end %>
+                <li>
+                  <%= link_to "All", root_path, class: "link" %>
+                </li>
             </ul>
           </li>
 
@@ -45,7 +54,7 @@
 
           <li>
             <%= form_tag(games_path, method: 'get', class: 'navbar-form navbar-right') do %>
-              <%= text_field_tag 'search', nil, class: 'form-control', placeholder: ''  %>
+              <%= text_field_tag 'search', params[:search], class: 'form-control', placeholder: ''  %>
               <%= submit_tag "Find Game", class: 'btn btn-default', :name => nil %>
             <% end %>
           </li>
@@ -58,6 +67,7 @@
 
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+
 
     <div class="container">
       <%= yield %>
