@@ -1,6 +1,6 @@
-# Speak App
+# TableTop Reviews
 
-Check out the site [here](http://.herokuapp.com/)!(Not yet)
+Check out the site [here](https://tabletopreviews.herokuapp.com/)
 
 ## Description:
 
