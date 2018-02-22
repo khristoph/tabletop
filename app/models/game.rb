@@ -3,7 +3,11 @@ class Game < ApplicationRecord
   belongs_to :category
   has_many :reviews
 
-  has_attached_file :game_img, styles: { game_index: "250x350>", game_show: "325x475>" }, default_url: "/images/:style/missing.png"
+  has_attached_file :game_img,
+   styles:
+   { game_index: "250x350>", game_show: "339x475>" },
+    default_url: "/images/:style/missing.png"
+
   validates_attachment_content_type :game_img, content_type: /\Aimage\/.*\z/
 
   def self.search(search)
