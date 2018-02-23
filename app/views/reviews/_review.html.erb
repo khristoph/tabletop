@@ -1,5 +1,9 @@
 <div class="review">
-  <div class="review-rating" data-score="<%= review.rating %>"></div>
+  <p> <%= review.user.username %> </p>
+  <div class="review-rating" data-score="<%= review.rating %>"> </div>
+
+  <p> <%= review.created_at.strftime("%B #{review.created_at.day.ordinalize}, %Y") %>   </p>
+
   <p class="review-comment"><%= review.comment %> </p>
 
   <% if user_signed_in? %>
