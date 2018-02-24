@@ -21,6 +21,7 @@ gem 'devise', '~> 4.2'
 gem 'paperclip', '>= 5.0'
 gem 'aws-sdk', '~> 2.3'
 gem 'dotenv-rails', groups: [:development, :test]
+gem 'pry'
 # gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
