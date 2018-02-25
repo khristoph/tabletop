@@ -1,3 +1,4 @@
+require 'rack/test'
 
 FactoryBot.define do
   factory :game do
@@ -7,6 +8,7 @@ FactoryBot.define do
     rule_link "www.example.com"
     association :category, factory: :category
     association :user, factory: :user
+    game_img Rack::Test::UploadedFile.new("#{Rails.root}/app/assets/images/arcane.png")
 
     end
 

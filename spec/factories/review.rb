@@ -8,4 +8,7 @@ FactoryBot.define do
 
     end
 
+    trait :invalid_review do
+      comment nil
+    end
   end

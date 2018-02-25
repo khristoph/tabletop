@@ -1,7 +1,8 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :edit]
   before_action :find_game
   before_action :find_review, only: [:edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:new, :edit]
+
 
 
   def new
@@ -9,6 +10,7 @@ class ReviewsController < ApplicationController
   end
 
   def create
+
     @review = Review.new(review_params)
     @review.game_id = @game.id
     @review.user_id = current_user.id
@@ -21,6 +23,9 @@ class ReviewsController < ApplicationController
   end
 
   def edit
+    if current_user.id != @review.user_id
+      redirect_to root_path
+    end
   end
 
   def update
