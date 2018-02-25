@@ -3,9 +3,7 @@ class Game < ApplicationRecord
   belongs_to :category
   has_many :reviews
 
-  validates :description, presence:true
-  validates :creator, presence:true
-  validates :title, presence:true
+  validates_presence_of :description, :creator, :title
 
   has_attached_file :game_img,
    styles:
